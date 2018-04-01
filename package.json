@@ -14,7 +14,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vue-sweetalert2": "^1.2.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
