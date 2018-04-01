@@ -37,9 +37,7 @@ var mutations = {
       name: payload.name,
       numberPhone: payload.numberPhone
     }
-    console.log(payload)
     state.customers.push(newCustomers)
-    console.log(state.customers)
   }
 }
 
@@ -54,5 +52,4 @@ var store = new Vuex.Store({
   mutations,
   actions
 })
-console.log(store)
 export default store

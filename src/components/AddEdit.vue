@@ -7,7 +7,7 @@
         </div>
         <div class="col">
           <input type="text" class="form-control"
-          placeholder="Last name" v-model="numberPhone">
+          placeholder="Number phone" v-model="numberPhone">
         </div>
       </div>
       <br>
@@ -38,17 +38,29 @@ export default {
   },
   methods: {
     addCustomers: function() {
-      var getCustomers = this.$store.getters.getCountCostumers
-      this.newId = getCustomers + 1
-      this.$store.dispatch('addCustomers', this)
-      this.name = ''
-      this.numberPhone = ''
-      this.newId = ''
+      this.name = this.name.trim()
+      this.numberPhone = this.numberPhone.trim()
+      if (this.name) {
+        if (this.numberPhone) {
+          var patt = new RegExp(/^\d*$/)
+          if (patt.test(this.numberPhone)) {
+            var getCustomers = this.$store.getters.getCountCostumers
+            this.newId = getCustomers + 1
+            this.$store.dispatch('addCustomers', this)
+            this.name = ''
+            this.numberPhone = ''
+            this.newId = ''
+          } else {
+            this.$swal('Format number phone must number')
+          }
+        } else {
+          this.$swal('Please insert number phone')
+        }
+      } else {
+        this.$swal('Please insert your name')
+      }
     },
-    testSwal: function() {
-      // this.$swal('Testing', 'Sweet-Alert-Berhasil', 'OK')
-      this.$swal('Any fool can use a computer')
-    }
+    testSwal: function() {}
   }
 }
 </script>
