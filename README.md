@@ -1,6 +1,6 @@
 # crud-table
 
-> crud-table-for-portfolio
+> crud-table-for-laerning-vue.js
 
 ## Build Setup
 
