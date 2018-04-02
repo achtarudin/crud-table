@@ -17,7 +17,10 @@
           <td class="text-center">{{customer.name}}</td>
           <td class="text-center">{{customer.numberPhone}}</td>
           <td class="text-center">
-            <button type="button" class="btn btn-outline-primary btn-sm">edit</button>
+            <button type="button"
+            class="btn btn-outline-primary btn-sm"
+            @click="editCustomer" :value="customer.id">
+            edit</button>
           </td>
           <td class="text-center">
             <button type="button" class="btn btn-outline-danger btn-sm">delete</button>
@@ -35,6 +38,12 @@ export default {
     custumers: function() {
       var getCustomers = this.$store.getters.getCustomers
       return getCustomers
+    }
+  },
+  methods: {
+    editCustomer: function(e) {
+      var id = e.target.value
+      this.$store.dispatch('editCustomer', id)
     }
   }
 }
