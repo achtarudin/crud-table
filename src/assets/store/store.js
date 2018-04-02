@@ -43,13 +43,17 @@ var mutations = {
 
 var actions = {
   addCustomers: function(context, payload) {
-    context.commit('ADD_CUSTOMERS', payload, 'tess')
+    context.commit('ADD_CUSTOMERS', payload)
+  },
+  editCustomer: function(context, payload) {
+    console.log(payload)
   }
 }
 var store = new Vuex.Store({
   state,
   getters,
   mutations,
-  actions
+  actions,
+  strict: true
 })
 export default store
