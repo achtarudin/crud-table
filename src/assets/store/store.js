@@ -5,17 +5,17 @@ var state = {
   customers: [
     {
       id: 1,
-      name: 'Achtarudin',
+      name: 'achtarudin',
       numberPhone: '33536'
     },
     {
       id: 2,
-      name: 'Achtarudin',
+      name: 'handsome',
       numberPhone: '434345'
     },
     {
       id: 3,
-      name: 'Achtarudin',
+      name: 'people',
       numberPhone: '343434'
     }
   ]
@@ -31,29 +31,37 @@ var getters = {
 }
 
 var mutations = {
-  ADD_CUSTOMERS: function(state, payload) {
+  ADD_CUSTOMER: function(state, payload) {
     var newCustomers = {
       id: payload.newId,
       name: payload.name,
       numberPhone: payload.numberPhone
     }
     state.customers.push(newCustomers)
+  },
+  DELETE_CUSTOMER: function(state, payload) {
+    function searchIndex(index) {
+      return index.id >= payload
+    }
+    var index = state.customers.findIndex(searchIndex)
+    // Method splice() adds/removes items to/from an array
+    // if method splice have three argument can become adds items
+    state.customers.splice(index, 1)
   }
 }
 
 var actions = {
   addCustomers: function(context, payload) {
-    context.commit('ADD_CUSTOMERS', payload)
+    context.commit('ADD_CUSTOMER', payload)
   },
-  editCustomer: function(context, payload) {
-    console.log(payload)
+  deleteCustomer: function(context, payload) {
+    context.commit('DELETE_CUSTOMER', payload)
   }
 }
 var store = new Vuex.Store({
   state,
   getters,
   mutations,
-  actions,
-  strict: true
+  actions
 })
 export default store
