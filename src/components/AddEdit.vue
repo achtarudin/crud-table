@@ -17,9 +17,9 @@
           class="btn btn-success btn-sm"
           @click="addCustomers">Add
           </button>
-          <button type="reset"
-          class="btn btn-dark btn-sm"
-          @click="testSwal">reset
+          <button type="reset" disabled
+          class="btn btn-dark btn-sm">
+          reset
           </button>
         </div>
       </div>
@@ -59,11 +59,11 @@ export default {
       } else {
         this.$swal('Please insert your name')
       }
-    },
-    testSwal: function() {}
+    }
   }
 }
 </script>
 
 <style>
+
 </style>
