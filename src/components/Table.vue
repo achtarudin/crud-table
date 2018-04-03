@@ -47,7 +47,7 @@ export default {
   methods: {
     editCustomer: function(e) {
       var id = e.target.value
-      this.$store.dispatch('editCustomer', id)
+      console.log(id)
     },
     // method delete costumer mutation
     deleteCustomer: function(e) {
@@ -64,5 +64,4 @@ export default {
 </script>
 
 <style>
-
 </style>
