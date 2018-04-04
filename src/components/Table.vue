@@ -18,7 +18,8 @@
           <td class="text-center">
             <button type="button"
             class="btn btn-outline-primary btn-sm"
-            @click="editCustomer">
+            @click="editCustomer"
+            :value="customer.id">
             edit</button>
           </td>
           <td class="text-center">
@@ -31,20 +32,41 @@
         </tr>
       </tbody>
     </table>
+    <modal :list="listCostumer"
+    @saveCustomer="saveCustomer"></modal>
   </div>
 </template>
 
 <script>
+import Modal from './Modal'
 export default {
+  data() {
+    return {
+      listCostumer: {
+        id: '',
+        name: '',
+        numberPhone: ''
+      }
+    }
+  },
+  components: {
+    Modal
+  },
   props: ['customer'],
   methods: {
     editCustomer: function(e) {
-      console.log(e)
+      var id = e.target.value - 1
+      console.log('test ' + id)
+
+      this.listCostumer.id = id
+      this.listCostumer.name = this.customer[id].name
+      this.listCostumer.numberPhone = this.customer[id].numberPhone
+    },
+    saveCustomer(valueUsers) {
+      this.$emit('saveCustomer', valueUsers)
     },
     // method delete costumer mutation
-    deleteCustomer: function(e) {
-      console.log(e)
-    },
+    deleteCustomer: function(e) {},
     // methods for capital word
     capitalize(name) {
       var capitalize = name.replace(/\b\w/g, l => l.toUpperCase())
@@ -55,4 +77,5 @@ export default {
 </script>
 
 <style>
+
 </style>

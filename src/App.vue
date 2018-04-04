@@ -6,20 +6,23 @@
         <add-edit @addCustomer="ADD_CUSTOMER">
         </add-edit>
         <br>
-        <tables :customer="COSTUMERS"></tables>
+        <tables :customer="CUSTOMERS"
+        @saveCustomer="SAVE_CUSTOMER">
+        </tables>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// import Vue from 'vue'
 import AddEdit from './components/AddEdit'
 import Tables from './components/Table'
-import { COSTUMERS } from './assets/store/customers'
+import { CUSTOMERS } from './assets/store/customers'
 export default {
   data() {
     return {
-      COSTUMERS
+      CUSTOMERS
     }
   },
   components: {
@@ -28,9 +31,21 @@ export default {
   },
   methods: {
     ADD_CUSTOMER(payload) {
-      console.log(payload.name)
-      console.log(payload.numberPhone)
-      console.log(this.COSTUMERS.length)
+      let newCustomer = {
+        name: payload.name,
+        numberPhone: payload.numberPhone,
+        id: this.CUSTOMERS.length + 1
+      }
+      this.CUSTOMERS.push(newCustomer)
+    },
+    SAVE_CUSTOMER(payload) {
+      console.log(this.CUSTOMERS[payload.id].id)
+      var data = {
+        id: this.CUSTOMERS[payload.id].id,
+        name: payload.name,
+        numberPhone: payload.numberPhone
+      }
+      this.$set(this.CUSTOMERS, payload.id, data)
     }
   }
 }
