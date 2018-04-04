@@ -11,22 +11,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr scope="row" v-for="customer in custumers" :key="customer.id">
+        <tr scope="row" v-for="customer in customer" :key="customer.id">
           <td class="text-center">{{customer.id}}</td>
           <td class="text-center">{{capitalize(customer.name)}}</td>
           <td class="text-center">{{customer.numberPhone}}</td>
           <td class="text-center">
             <button type="button"
             class="btn btn-outline-primary btn-sm"
-            @click="editCustomer"
-            :value="customer.id">
+            @click="editCustomer">
             edit</button>
           </td>
           <td class="text-center">
             <button type="button"
             class="btn btn-outline-danger btn-sm"
-            @click="deleteCustomer"
-            :value="customer.id">
+            @click="deleteCustomer">
             delete
             </button>
           </td>
@@ -38,21 +36,14 @@
 
 <script>
 export default {
-  computed: {
-    custumers: function() {
-      var getCustomers = this.$store.getters.getCustomers
-      return getCustomers
-    }
-  },
+  props: ['customer'],
   methods: {
     editCustomer: function(e) {
-      var id = e.target.value
-      console.log(id)
+      console.log(e)
     },
     // method delete costumer mutation
     deleteCustomer: function(e) {
-      var id = e.target.value
-      this.$store.dispatch('deleteCustomer', id)
+      console.log(e)
     },
     // methods for capital word
     capitalize(name) {

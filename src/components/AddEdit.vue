@@ -31,22 +31,20 @@
 export default {
   data() {
     return {
+      newId: '',
       name: '',
-      numberPhone: '',
-      newId: ''
+      numberPhone: ''
     }
   },
   methods: {
-    addCustomers: function() {
+    addCustomers() {
       this.name = this.name.trim()
       this.numberPhone = this.numberPhone.trim()
       if (this.name) {
         if (this.numberPhone) {
           var patt = new RegExp(/^\d*$/)
           if (patt.test(this.numberPhone)) {
-            var getCustomers = this.$store.getters.getCountCostumers
-            this.newId = getCustomers + 1
-            this.$store.dispatch('addCustomers', this)
+            this.$emit('addCustomer', this)
             this.name = ''
             this.numberPhone = ''
             this.newId = ''
@@ -65,5 +63,4 @@ export default {
 </script>
 
 <style>
-
 </style>

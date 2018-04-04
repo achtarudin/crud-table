@@ -9,14 +9,30 @@
 <script>
 import AddEdit from './AddEdit'
 import Tables from './Table.vue'
-import store from '../assets/store/store'
-
 export default {
+  data() {
+    return costumers[
+      ({
+        id: 1,
+        name: 'achtarudin',
+        numberPhone: '33536'
+      },
+      {
+        id: 2,
+        name: 'handsome',
+        numberPhone: '434345'
+      },
+      {
+        id: 3,
+        name: 'people',
+        numberPhone: '343434'
+      })
+    ]
+  },
   components: {
     AddEdit,
     Tables
-  },
-  store: store
+  }
 }
 </script>
 
