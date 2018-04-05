@@ -45,7 +45,8 @@ export default {
       listCostumer: {
         id: '',
         name: '',
-        numberPhone: ''
+        numberPhone: '',
+        display: true
       }
     }
   },
@@ -55,14 +56,14 @@ export default {
   props: ['customer'],
   methods: {
     editCustomer: function(e) {
-      console.log(e)
-
       var id = e.target.value - 1
       this.listCostumer.id = id
+      this.listCostumer.display = false
       this.listCostumer.name = this.customer[id].name
       this.listCostumer.numberPhone = this.customer[id].numberPhone
     },
     saveCustomer(valueUsers) {
+      this.listCostumer.display = true
       this.$emit('saveCustomer', valueUsers)
     },
     // method delete costumer mutation
