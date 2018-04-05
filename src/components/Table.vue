@@ -55,9 +55,9 @@ export default {
   props: ['customer'],
   methods: {
     editCustomer: function(e) {
-      var id = e.target.value - 1
-      console.log('test ' + id)
+      console.log(e)
 
+      var id = e.target.value - 1
       this.listCostumer.id = id
       this.listCostumer.name = this.customer[id].name
       this.listCostumer.numberPhone = this.customer[id].numberPhone
@@ -77,5 +77,4 @@ export default {
 </script>
 
 <style>
-
 </style>
