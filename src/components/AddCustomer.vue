@@ -12,14 +12,10 @@
       </div>
       <br>
       <div class="row">
-        <div class="col-md-8 offset-md-10 col-sm-4 offset-sm-9">
+        <div class="col">
           <button type="submit"
           class="btn btn-success btn-sm"
           @click="addCustomers">Add
-          </button>
-          <button type="reset" disabled
-          class="btn btn-dark btn-sm">
-          reset
           </button>
         </div>
       </div>
@@ -64,6 +60,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.row .col button {
+  float: right;
+}
 </style>
