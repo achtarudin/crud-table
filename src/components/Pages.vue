@@ -1,20 +1,20 @@
 <template>
     <div>
-      <add-edit></add-edit>
+      <add-customer></add-customer>
       <br>
-        <tables></tables>
+        <table-customers></table-customers>
     </div>
 </template>
 
 <script>
-import AddEdit from './AddEdit'
-import Tables from './Table.vue'
+import AddCustomer from './AddCustomer'
+import TableCustomers from './TableCustomers'
 import store from '../assets/store/store'
 
 export default {
   components: {
-    AddEdit,
-    Tables
+    AddCustomer,
+    TableCustomers
   },
   store: store
 }
