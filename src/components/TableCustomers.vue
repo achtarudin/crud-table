@@ -11,15 +11,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr scope="row" v-for="customer in custumers" :key="customer.id">
-          <td class="text-center">{{customer.id}}</td>
-          <td class="text-center">{{capitalize(customer.name)}}</td>
-          <td class="text-center">{{customer.numberPhone}}</td>
+        <tr scope="row"
+          v-for="customer in custumers"
+          :key="customer.id">
+          <td class="text-center">
+            {{customer.id}}
+          </td>
+          <td class="text-center">
+            {{capitalize(customer.name)}}
+          </td>
+          <td class="text-center">
+            {{customer.numberPhone}}
+          </td>
           <td class="text-center">
             <button type="button"
             class="btn btn-outline-primary btn-sm"
             @click="editCustomer"
-            :value="customer.id">
+            v-bind="customer">
             edit</button>
           </td>
           <td class="text-center">
@@ -33,11 +41,30 @@
         </tr>
       </tbody>
     </table>
+    <modal
+    :displayT="displayModal"
+    :customer="customer"
+    @testModal="closeModal">
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from './Modal'
 export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      displayModal: '',
+      customer: {
+        id: '',
+        name: '',
+        numberPhone: ''
+      }
+    }
+  },
   computed: {
     custumers: function() {
       var getCustomers = this.$store.getters.getCustomers
@@ -46,13 +73,20 @@ export default {
   },
   methods: {
     editCustomer: function(e) {
-      var id = e.target.value
-      console.log(id)
+      var result = e.target.attributes
+      console.log(result)
+      this.customer.id = result.id.value
+      this.customer.name = result.name.value
+      this.customer.numberPhone = result.numberPhone.value
+      this.displayModal = true
     },
     // method delete costumer mutation
     deleteCustomer: function(e) {
       var id = e.target.value
       this.$store.dispatch('deleteCustomer', id)
+    },
+    closeModal() {
+      this.displayModal = false
     },
     // methods for capital word
     capitalize(name) {
