@@ -44,7 +44,7 @@
     <modal
     :displayT="displayModal"
     :customer="customer"
-    @testModal="closeModal">
+    @closeModal="closeModal">
     </modal>
   </div>
 </template>
@@ -66,22 +66,21 @@ export default {
     }
   },
   computed: {
-    custumers: function() {
+    custumers() {
       var getCustomers = this.$store.getters.getCustomers
       return getCustomers
     }
   },
   methods: {
-    editCustomer: function(e) {
+    editCustomer(e) {
       var result = e.target.attributes
-      console.log(result)
       this.customer.id = result.id.value
       this.customer.name = result.name.value
       this.customer.numberPhone = result.numberPhone.value
       this.displayModal = true
     },
     // method delete costumer mutation
-    deleteCustomer: function(e) {
+    deleteCustomer(e) {
       var id = e.target.value
       this.$store.dispatch('deleteCustomer', id)
     },
