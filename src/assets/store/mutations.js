@@ -5,6 +5,7 @@ export var mutations = {
       name: payload.name,
       numberPhone: payload.numberPhone
     }
+    console.log(newCustomers.id)
     state.customers.push(newCustomers)
   },
   DELETE_CUSTOMER(state, payload) {
@@ -18,5 +19,7 @@ export var mutations = {
   },
   EDIT_CUSTOMER(state, payload) {
     console.log(payload.id)
+    var id = payload.id - 1
+    state.customers.splice(id, 1, payload)
   }
 }
