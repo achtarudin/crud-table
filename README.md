@@ -1,10 +1,16 @@
-# crud-table
+# crud table
 
-> crud-table-for-laerning-vue.js
+> crud table laerning vue.js
 
-## Build Setup
+## Installation
 
-``` bash
+```bash
+# clone this repo
+$ git clone https://github.com/achtarudin/crud-table.git nameYourFolder
+
+# enter the folder
+cd nameYourFolder
+
 # install dependencies
 npm install
 
@@ -13,18 +19,13 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# what is next
+
+* search from
+* animation
+* validation of edit menu
+  \*etc
+
+  For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
