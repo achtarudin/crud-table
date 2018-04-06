@@ -9,16 +9,16 @@
 $ git clone https://github.com/achtarudin/crud-table.git nameYourFolder
 
 # enter the folder
-cd nameYourFolder
+$ cd nameYourFolder
 
 # install dependencies
-npm install
+$ npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+$ npm run dev
 
 # build for production with minification
-npm run build
+$ npm run build
 ```
 
 # what is next
@@ -28,4 +28,4 @@ npm run build
 * validation of edit menu
   \*etc
 
-  For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+  For a detailed explanation on how thing work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
