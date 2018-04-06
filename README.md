@@ -1,6 +1,6 @@
 # crud table
 
-> crud table laerning vue.js
+> crud table learn vue.js
 
 ## Installation
 
