@@ -10,12 +10,20 @@
 </template>
 
 <script>
+/**
+ * @description
+ * Import component from Pages.vue and
+ * setup as component in App.vue
+ */
 import Pages from './components/Pages.vue'
 export default {
   components: {
     Pages
   }
 }
+/**
+ * @end description
+ */
 </script>
 
 <style>
