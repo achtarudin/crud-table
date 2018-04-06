@@ -12,10 +12,10 @@
       </thead>
       <tbody>
         <tr scope="row"
-          v-for="customer in custumers"
-          :key="customer.id">
+          v-for="(customer,index) in custumers"
+          :key="index">
           <td class="text-center">
-            {{customer.id}}
+            {{customer.id}}.{{index}}
           </td>
           <td class="text-center">
             {{capitalize(customer.name)}}
@@ -34,7 +34,7 @@
             <button type="button"
             class="btn btn-outline-danger btn-sm"
             @click="deleteCustomer"
-            :value="customer.id">
+            :value="index">
             delete
             </button>
           </td>
