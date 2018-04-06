@@ -1,3 +1,22 @@
+/**
+ * @description
+ * set mutation from vuex @see www.vue/vuex.org
+ *
+ * @method ADD_CUSTUMER for adding new customer,
+ * must with 2 @argument
+ * 1, state from store.js,
+ * 2. payload for data from actions.js file
+ *
+ * @method DELETE_CUSTOMER for delete customer with id,
+ * must with 2 @argument
+ * 1, state from store.js,
+ * 2. payload for data from actions.js file
+ *
+ * @method EDIT_CUSTOMER for edit custumer with id,
+ * must with 2 @argument
+ * 1, state from store.js,
+ * 2. payload for data from actions.js file
+ */
 export var mutations = {
   ADD_CUSTOMER(state, payload) {
     var newCustomers = {
@@ -5,7 +24,6 @@ export var mutations = {
       name: payload.name,
       numberPhone: payload.numberPhone
     }
-    console.log(newCustomers.id)
     state.customers.push(newCustomers)
   },
   DELETE_CUSTOMER(state, payload) {

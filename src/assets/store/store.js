@@ -25,10 +25,18 @@ var state = {
   ]
 }
 
+/**
+ * @description setup Vuex.Store
+ * @type object
+ */
 var store = new Vuex.Store({
   state,
   getters,
   mutations,
   actions
 })
+
+/**
+ * @description export variable store
+ */
 export default store
