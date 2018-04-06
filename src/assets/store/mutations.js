@@ -1,5 +1,5 @@
 export var mutations = {
-  ADD_CUSTOMER: function(state, payload) {
+  ADD_CUSTOMER(state, payload) {
     var newCustomers = {
       id: payload.newId,
       name: payload.name,
@@ -7,7 +7,7 @@ export var mutations = {
     }
     state.customers.push(newCustomers)
   },
-  DELETE_CUSTOMER: function(state, payload) {
+  DELETE_CUSTOMER(state, payload) {
     function searchIndex(index) {
       return index.id >= payload
     }
@@ -15,5 +15,8 @@ export var mutations = {
     // Method splice() adds/removes items to/from an array
     // if method splice have three argument can become adds items
     state.customers.splice(index, 1)
+  },
+  EDIT_CUSTOMER(state, payload) {
+    console.log(payload.id)
   }
 }
