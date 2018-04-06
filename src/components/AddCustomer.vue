@@ -33,16 +33,32 @@ export default {
     }
   },
   methods: {
-    addCustomers: function() {
+    /**
+     * @description
+     * @method addCustomer() for add new customer
+     */
+    addCustomers() {
       this.name = this.name.trim()
       this.numberPhone = this.numberPhone.trim()
       if (this.name) {
         if (this.numberPhone) {
+          /** @description
+           * Set Regexp for validasi from input
+           * @type must number
+           */
           var patt = new RegExp(/^\d*$/)
+
           if (patt.test(this.numberPhone)) {
             var getCustomers = this.$store.getters.getCountCostumers
             this.newId = getCustomers + 1
+
+            /**
+             * @method this.$store.dispatch()
+             * for comunnication to actions.js file
+             * with @argument (1. name function in actions.js file, 2. data)
+             */
             this.$store.dispatch('addCustomers', this)
+
             this.name = ''
             this.numberPhone = ''
             this.newId = ''

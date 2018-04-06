@@ -44,8 +44,18 @@
 
 <script>
 export default {
+  /**
+   * @description
+   * Property props is @type array
+   * for make v-bind in TableCustomer.vue
+   */
   props: ['displayT', 'customer'],
   methods: {
+    /**
+     * @description
+     * @method closeModal()
+     * for close modal Bootstrap
+     */
     closeModal() {
       this.$emit('closeModal')
     },
@@ -56,7 +66,13 @@ export default {
         name: result.name.value,
         numberPhone: result.numberPhone.value
       }
+      /**
+       * @method this.$store.dispatch()
+       * for comunnication to actions.js file
+       * with @argument (1. name function in actions.js file, 2. data)
+       */
       this.$store.dispatch('editCustomer', editCustomer)
+
       this.$emit('closeModal')
     }
   }

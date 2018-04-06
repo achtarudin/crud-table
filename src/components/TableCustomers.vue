@@ -11,6 +11,8 @@
         </tr>
       </thead>
       <tbody>
+
+        <!-- variable customers is computed property -->
         <tr scope="row"
           v-for="(customer,index) in custumers"
           :key="index">
@@ -18,6 +20,8 @@
             {{customer.id}}.{{index}}
           </td>
           <td class="text-center">
+
+            <!-- make method capitalize for capital first of word -->
             {{capitalize(customer.name)}}
           </td>
           <td class="text-center">
@@ -50,6 +54,11 @@
 </template>
 
 <script>
+/**
+ * @description
+ * Import component from Modal.vue and
+ * setup as component in TableCustomers.vue
+ */
 import Modal from './Modal'
 export default {
   components: {
@@ -66,12 +75,28 @@ export default {
     }
   },
   computed: {
+    /**
+     * @function
+     * customers set as computed
+     *
+     * @description
+     * take function from getters.getCustomers
+     *
+     * @returns
+     * type Object
+     */
     custumers() {
       var getCustomers = this.$store.getters.getCustomers
       return getCustomers
     }
   },
   methods: {
+    /**
+     * @description
+     * @method editCustomer
+     * setup as data intance
+     * @see data()
+     */
     editCustomer(e) {
       var result = e.target.attributes
       this.customer.id = result.id.value
@@ -79,15 +104,36 @@ export default {
       this.customer.numberPhone = result.numberPhone.value
       this.displayModal = true
     },
-    // method delete costumer mutation
+
+    /**
+     * @description
+     * @method deleteCustomer()
+     * for delete customer with
+     * @augments id from index customer
+     */
     deleteCustomer(e) {
       var id = e.target.value
+
+      /**
+       * @function  this.store.dispatch()
+       * call function deleteCustomer in actions.js file
+       */
       this.$store.dispatch('deleteCustomer', id)
     },
+
+    /**
+     * @description
+     * @method closeModal() for close modal bootstrap,
+     * who setup to @see data() object
+     */
     closeModal() {
       this.displayModal = false
     },
-    // methods for capital word
+
+    /**
+     * @description
+     * @method capitalize() for leter of first word become capital
+     */
     capitalize(name) {
       var capitalize = name.replace(/\b\w/g, l => l.toUpperCase())
       return capitalize
