@@ -10,17 +10,16 @@
           </h5>
         </div>
         <div class="modal-body">
-          {{customer.id}}
-          {{customer.name}}
-          {{customer.numberPhone}}
           <div class="form-row">
             <div class="col-md-6 col-sm-12">
               <input type="text"
-              class="form-control" >
+              class="form-control"
+              v-model="customer.name">
             </div>
              <div class="col-md-6 col-sm-12">
               <input type="text"
-              class="form-control">
+              class="form-control"
+              v-model="customer.numberPhone">
             </div>
            </div>
         </div>
@@ -30,7 +29,9 @@
             @click="closeModal">Close
           </button>
           <button type="button"
-            class="btn btn-primary btn-sm">
+            class="btn btn-primary btn-sm"
+            @click="editCustomer"
+            v-bind="customer">
             Save changes
           </button>
         </div>
@@ -43,15 +44,20 @@
 
 <script>
 export default {
-  data() {
-    return {
-      display: ''
-    }
-  },
   props: ['displayT', 'customer'],
   methods: {
     closeModal() {
-      this.$emit('testModal')
+      this.$emit('closeModal')
+    },
+    editCustomer(e) {
+      var result = e.target.attributes
+      var editCustomer = {
+        id: result.id.value,
+        name: result.name.value,
+        numberPhone: result.numberPhone.value
+      }
+      this.$store.dispatch('editCustomer', editCustomer)
+      this.$emit('closeModal')
     }
   }
 }
