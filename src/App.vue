@@ -6,6 +6,7 @@
         <pages></pages>
       </div>
     </div>
+    <br>
   </div>
 </template>
 

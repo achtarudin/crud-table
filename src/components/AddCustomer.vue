@@ -1,20 +1,25 @@
 <template>
   <div class="card">
-    <div class="card-body border border-primary">
+    <div class="card-body rounded border border-secondary">
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Name" v-model="name">
+          <input type="text" class="form-control"
+            placeholder="Name"
+            v-model="name"
+            @keyup.enter="addCustomers">
         </div>
         <div class="col">
           <input type="text" class="form-control"
-          placeholder="Number phone" v-model="numberPhone">
+          placeholder="Number phone"
+          v-model="numberPhone"
+          @keyup.enter="addCustomers">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
           <button type="submit"
-          class="btn btn-success btn-sm"
+          class="btn btn-success"
           @click="addCustomers">Add
           </button>
         </div>
@@ -47,7 +52,6 @@ export default {
            * @type must number
            */
           var patt = new RegExp(/^\d*$/)
-
           if (patt.test(this.numberPhone)) {
             var getCustomers = this.$store.getters.getCountCostumers
             this.newId = getCustomers + 1
@@ -58,6 +62,17 @@ export default {
              * with @argument (1. name function in actions.js file, 2. data)
              */
             this.$store.dispatch('addCustomers', this)
+
+            /**
+             * @description
+             * alert if success add new customer
+             */
+            this.$swal({
+              type: 'success',
+              title: 'New customer have been added ',
+              showConfirmButton: false,
+              timer: 1500
+            })
 
             this.name = ''
             this.numberPhone = ''

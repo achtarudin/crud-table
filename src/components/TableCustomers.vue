@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card card-body">
     <table class="table table-hover">
       <thead>
         <tr class="text-center">
@@ -112,13 +112,24 @@ export default {
      * @augments id from index customer
      */
     deleteCustomer(e) {
-      var id = e.target.value
-
-      /**
-       * @function  this.store.dispatch()
-       * call function deleteCustomer in actions.js file
-       */
-      this.$store.dispatch('deleteCustomer', id)
+      this.$swal({
+        title: 'Are you sure?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(result => {
+        if (result.value) {
+          /**
+           * @function  this.store.dispatch()
+           * call function deleteCustomer in actions.js file
+           */
+          var id = e.target.value
+          this.$store.dispatch('deleteCustomer', id)
+          this.$swal('Deleted!', 'Your customer has been deleted.', 'success')
+        }
+      })
     },
 
     /**
