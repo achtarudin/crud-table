@@ -30,7 +30,11 @@ export var mutations = {
     state.customers.splice(payload, 1)
   },
   EDIT_CUSTOMER(state, payload) {
-    var id = payload.id - 1
-    state.customers.splice(id, 1, payload)
+    var data = {
+      id: Number(payload.id) + 1,
+      name: payload.name,
+      numberPhone: payload.numberPhone
+    }
+    state.customers.splice(payload.id, 1, data)
   }
 }

@@ -17,7 +17,7 @@
           v-for="(customer,index) in custumers"
           :key="index">
           <td class="text-center">
-            {{customer.id}}.{{index}}
+            {{customer.id}}
           </td>
           <td class="text-center">
 
@@ -31,7 +31,8 @@
             <button type="button"
             class="btn btn-outline-primary btn-sm"
             @click="editCustomer"
-            v-bind="customer">
+            v-bind="customer"
+            :value="index">
             edit</button>
           </td>
           <td class="text-center">
@@ -99,7 +100,7 @@ export default {
      */
     editCustomer(e) {
       var result = e.target.attributes
-      this.customer.id = result.id.value
+      this.customer.id = e.target.value
       this.customer.name = result.name.value
       this.customer.numberPhone = result.numberPhone.value
       this.displayModal = true
