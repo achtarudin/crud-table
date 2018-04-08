@@ -80,7 +80,11 @@ export default {
             this.numberPhone = ''
             this.newId = ''
           } else {
-            this.$swal('Format number phone must number')
+            this.$swal({
+              type: 'error',
+              title: 'Oops...',
+              text: 'Format number phone must type number'
+            })
           }
         } else {
           this.$swal('Please insert number phone')
