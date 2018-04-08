@@ -28,4 +28,4 @@ $ npm run build
 * validation of edit menu
   \*etc
 
-  For a detailed explanation on how thing work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+check out the [Demo](https://achtarudin.github.io/crud-table/)
