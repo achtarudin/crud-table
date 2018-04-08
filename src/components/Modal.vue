@@ -79,8 +79,14 @@ export default {
        * with @argument (1. name function in actions.js file, 2. data)
        */
       this.$store.dispatch('editCustomer', editCustomer)
-
       this.$emit('closeModal')
+      this.$swal({
+        position: 'top-end',
+        type: 'success',
+        title: 'Your customer has been changes',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 }
