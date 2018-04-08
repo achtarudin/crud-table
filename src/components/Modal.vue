@@ -14,12 +14,15 @@
           </div>
           <div class="modal-body">
             <div class="form-row">
-              <div class="col-md-6 col-sm-12">
+              <div class="col-md-6 col-xs-12">
                 <input type="text"
                 class="form-control"
                 v-model="customer.name">
               </div>
-              <div class="col-md-6 col-sm-12">
+              <div class="col-xs-12 d-block d-md-none">
+                <br>
+              </div>
+              <div class="col-md-6 col-xs-12">
                 <input type="text"
                 class="form-control"
                 v-model="customer.numberPhone">
