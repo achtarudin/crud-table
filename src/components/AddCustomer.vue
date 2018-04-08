@@ -3,13 +3,15 @@
     <div class="card-body rounded border border-secondary">
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control"
+          <input type="text"
+          class="form-control"
             placeholder="Name"
             v-model="name"
             @keyup.enter="addCustomers">
         </div>
         <div class="col">
-          <input type="text" class="form-control"
+          <input type="text"
+          class="form-control"
           placeholder="Number phone"
           v-model="numberPhone"
           @keyup.enter="addCustomers">
