@@ -1,12 +1,19 @@
 <template>
   <div class="container">
-    <br>
     <div class="row justify-content-center">
       <div class="col-md-8">
+        <h3 class="text-center">
+          Crud table with vuejs
+        </h3>
         <pages></pages>
       </div>
     </div>
-    <br>
+    <div class="footer">
+      <hr>
+      <a href="https://github.com/achtarudin/crud-table">
+      code
+      </a>
+    </div>
   </div>
 </template>
 
