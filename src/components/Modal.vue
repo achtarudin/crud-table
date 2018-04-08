@@ -1,43 +1,47 @@
 <template>
 <div>
-  <div class="modal fade"
-  :class="{show: displayT}">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
-            Edit Customer
-          </h5>
-        </div>
-        <div class="modal-body">
-          <div class="form-row">
-            <div class="col-md-6 col-sm-12">
-              <input type="text"
-              class="form-control"
-              v-model="customer.name">
+  <!-- Transitions Vue js -->
+  <transition name="fade">
+    <div class="modal fade"
+    :class="{show: displayT}"
+    v-if="displayT">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              Edit Customer
+            </h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="col-md-6 col-sm-12">
+                <input type="text"
+                class="form-control"
+                v-model="customer.name">
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <input type="text"
+                class="form-control"
+                v-model="customer.numberPhone">
+              </div>
             </div>
-             <div class="col-md-6 col-sm-12">
-              <input type="text"
-              class="form-control"
-              v-model="customer.numberPhone">
-            </div>
-           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button"
-            class="btn btn-secondary btn-sm"
-            @click="closeModal">Close
-          </button>
-          <button type="button"
-            class="btn btn-primary btn-sm"
-            @click="editCustomer"
-            v-bind="customer">
-            Save changes
-          </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button"
+              class="btn btn-secondary btn-sm"
+              @click="closeModal">Close
+            </button>
+            <button type="button"
+              class="btn btn-primary btn-sm"
+              @click="editCustomer"
+              v-bind="customer">
+              Save changes
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 
 </div>
 </template>
@@ -88,5 +92,12 @@ export default {
 .modal.fade {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
